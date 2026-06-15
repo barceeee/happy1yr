@@ -37,9 +37,12 @@ slideEls.forEach((_, i) => {
 });
 
 function go(idx) {
-  // Unload previous iframe to stop playback
+  // Clear previous iframe src to stop playback and prevent duplication
   const prevFrame = slideEls[cur].querySelector('.sp-frame');
-  if (prevFrame) prevFrame.src = '';
+  if (prevFrame) {
+    prevFrame.src = '';
+    prevFrame.removeAttribute('src');
+  }
 
   cur = ((idx % total) + total) % total;
   track.style.transform = `translateX(-${cur * 100}%)`;
@@ -47,11 +50,11 @@ function go(idx) {
   // Update dots
   dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('on', i === cur));
 
-  // Load Spotify embed for the new slide
+  // Load Spotify embed for the new slide after a brief delay to ensure clean load
   const spotifyId = slideEls[cur].dataset.spotify;
   const frame     = slideEls[cur].querySelector('.sp-frame');
   if (frame && spotifyId) {
-    frame.src = spotifySrc(spotifyId);
+    setTimeout(() => { frame.src = spotifySrc(spotifyId); }, 50);
   }
 }
 
