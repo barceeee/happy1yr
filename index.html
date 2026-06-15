@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy 1 Year 💕</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="stars-bg"></div>
-  <div class="petals-bg" id="petals"></div>
+  <div class="noise"></div>
+  <div class="orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div id="petals"></div>
 
   <nav>
-    <span class="nav-logo">M &amp; N ♡</span>
+    <span class="nav-logo">M <span class="amp">&</span> N</span>
     <ul class="nav-links">
       <li><a href="#gallery">Memories</a></li>
       <li><a href="#letter">Letter</a></li>
@@ -25,391 +30,353 @@
     </ul>
   </nav>
 
-  <!-- Hero -->
+  <!-- ── Hero ── -->
   <section id="hero">
     <div class="hero-inner">
-      <p class="hero-subtitle">June 3, 2025 &mdash; June 3, 2026</p>
-      <h1 class="hero-title">Happy <span class="highlight">1 Year</span><br>of Love</h1>
-      <p class="hero-date">One whole year with you <span class="pulse-heart">♡</span></p>
-      <p class="hero-message">365 days of laughing too loud, being completely silly, and finding the whole world inside your smile. Here is every beautiful memory we made.</p>
-      <a href="#gallery" class="hero-cta">See Our Story &darr;</a>
+      <div class="hero-badge">June 3, 2025 — June 3, 2026</div>
+      <h1 class="hero-title">Happy <em>1 Year</em><br>of Love</h1>
+      <p class="hero-sub">One whole year with you <span class="hb">♡</span></p>
+      <p class="hero-msg">365 days of laughing too loud, being completely silly, and finding the whole world inside your smile.</p>
+      <a href="#gallery" class="btn-cta">See Our Story ↓</a>
     </div>
   </section>
 
-  <!-- Gallery Slideshow -->
+  <!-- ── Slideshow ── -->
   <section id="gallery">
     <div class="container">
-      <span class="section-label reveal">Our Memories</span>
-      <h2 class="section-title reveal">A Year of Us</h2>
-      <p class="section-desc reveal">Every photo has a love song that feels just like that moment.</p>
+      <div class="section-eyebrow reveal">Our Memories</div>
+      <h2 class="section-heading reveal">A Year of Us</h2>
+      <p class="section-sub reveal">Every photo has a love song that feels just like that moment — tap play to hear it.</p>
 
-      <div class="slideshow reveal" id="slideshow">
+      <div class="wrapped reveal" id="wrapped">
+        <div class="slides" id="slides">
 
-        <div class="slides-track" id="slidesTrack">
-
+          <!-- slide data: img | ytId | title -->
           <!-- 01 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005476.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005476.jpg" alt="Comfort Zone" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">01 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Comfort Zone</h3>
+          <div class="slide" data-yt="7jOqzJjLxMTg6yScO5nYDb">
+            <div class="s-bg" style="background-image:url('img/1000005476.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005476.jpg" alt="Comfort Zone" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">01 / 19</span>
+                <span class="s-name">Comfort Zone</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7jOqzJjLxMTg6yScO5nYDb?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-0" class="yt-frame" src="" title="Comfort Zone song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
           <!-- 02 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005584.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005584.jpg" alt="Mirror Selfie" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">02 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Mirror Selfie</h3>
+          <div class="slide" data-yt="0BewsYUbEIKdJmdap9oI7V">
+            <div class="s-bg" style="background-image:url('img/1000005584.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005584.jpg" alt="Mirror Selfie" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">02 / 19</span>
+                <span class="s-name">Mirror Selfie</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0BewsYUbEIKdJmdap9oI7V?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-1" class="yt-frame" src="" title="Mirror Selfie song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
           <!-- 03 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005450.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005450.jpg" alt="Silly Faces" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">03 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Silly Faces</h3>
+          <div class="slide" data-yt="0uZFcsx96wzbixsULmrg8o">
+            <div class="s-bg" style="background-image:url('img/1000005450.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005450.jpg" alt="Silly Faces" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">03 / 19</span>
+                <span class="s-name">Silly Faces</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0uZFcsx96wzbixsULmrg8o?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-2" class="yt-frame" src="" title="Silly Faces song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
-          <!-- 04 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005305.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005305.jpg" alt="Night Out" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">04 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Night Out</h3>
+          <!-- 04: was Raining in Manila (sad) → Ikaw by Yeng Constantino (romantic) -->
+          <div class="slide" data-yt="GNFTqMSKmSA">
+            <div class="s-bg" style="background-image:url('img/1000005305.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005305.jpg" alt="Night Out" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">04 / 19</span>
+                <span class="s-name">Night Out</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/21LiJ0I7bH4IzhMdft5x0t?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-3" class="yt-frame" src="" title="Night Out song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
           <!-- 05 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005605.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005605.jpg" alt="Lazy Day Vibes" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">05 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Lazy Day Vibes</h3>
+          <div class="slide" data-yt="0uZFcsx96wzbixsULmrg8o">
+            <div class="s-bg" style="background-image:url('img/1000005605.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005605.jpg" alt="Lazy Day Vibes" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">05 / 19</span>
+                <span class="s-name">Lazy Day Vibes</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0uZFcsx96wzbixsULmrg8o?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-4" class="yt-frame" src="" title="Lazy Day song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
-          <!-- 06 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005433.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005433.jpg" alt="Arcade Date" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">06 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Arcade Date</h3>
+          <!-- 06: was Paki Sabi (sad bittersweet) → Ikaw Lang by Ben&Ben (romantic) -->
+          <div class="slide" data-yt="p-pFEWvGFjU">
+            <div class="s-bg" style="background-image:url('img/1000005433.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005433.jpg" alt="Arcade Date" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">06 / 19</span>
+                <span class="s-name">Arcade Date</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0BKZ6nfJM8pksG3NiZcxDS?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-5" class="yt-frame" src="" title="Arcade song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
           <!-- 07 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005458.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005458.jpg" alt="Soft Smiles" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">07 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Soft Smiles</h3>
+          <div class="slide" data-yt="7b89Ffklm3xh4GI37vlZDZ">
+            <div class="s-bg" style="background-image:url('img/1000005458.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005458.jpg" alt="Soft Smiles" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">07 / 19</span>
+                <span class="s-name">Soft Smiles</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7b89Ffklm3xh4GI37vlZDZ?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-6" class="yt-frame" src="" title="Soft Smiles song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
-          <!-- 08 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005560.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005560.jpg" alt="Full Energy" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">08 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Full Energy</h3>
+          <!-- 08: was Kung Alam Mo Lang (sad longing) → Kabisado by IV of Spades (romantic) -->
+          <div class="slide" data-yt="uyC8mS5MHkk">
+            <div class="s-bg" style="background-image:url('img/1000005560.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005560.jpg" alt="Full Energy" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">08 / 19</span>
+                <span class="s-name">Full Energy</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2OwTNSBOspDlAWDcv37GIW?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-7" class="yt-frame" src="" title="Full Energy song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
           <!-- 09 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005262.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005262.jpg" alt="Campus Thumbs Up" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">09 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Campus Thumbs Up</h3>
+          <div class="slide" data-yt="683vYd6JzbsguUFrX5VeG9">
+            <div class="s-bg" style="background-image:url('img/1000005262.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005262.jpg" alt="Campus Thumbs Up" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">09 / 19</span>
+                <span class="s-name">Campus Thumbs Up</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2OwTNSBOspDlAWDcv37GIW?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-8" class="yt-frame" src="" title="Campus song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
           <!-- 10 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005551.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005551.jpg" alt="Teal Vibes" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">10 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Teal Vibes</h3>
+          <div class="slide" data-yt="683vYd6JzbsguUFrX5VeG9">
+            <div class="s-bg" style="background-image:url('img/1000005551.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005551.jpg" alt="Teal Vibes" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">10 / 19</span>
+                <span class="s-name">Teal Vibes</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/683vYd6JzbsguUFrX5VeG9?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-9" class="yt-frame" src="" title="Teal Vibes song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
-          <!-- 11 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005285.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005285.jpg" alt="Campus Hangout" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">11 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Campus Hangout</h3>
+          <!-- 11: was Orasa (sad) → Pelikula by Ben&Ben (romantic) -->
+          <div class="slide" data-yt="1EDzl2QYxnc">
+            <div class="s-bg" style="background-image:url('img/1000005285.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005285.jpg" alt="Campus Hangout" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">11 / 19</span>
+                <span class="s-name">Campus Hangout</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7tEmYgysfhAr3s5hEa8nlc?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-10" class="yt-frame" src="" title="Campus Hangout song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
           <!-- 12 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005574.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005574.jpg" alt="Cozy Yellow" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">12 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Cozy Yellow</h3>
+          <div class="slide" data-yt="4mc3rUoMwwiNTHA4al9nNd">
+            <div class="s-bg" style="background-image:url('img/1000005574.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005574.jpg" alt="Cozy Yellow" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">12 / 19</span>
+                <span class="s-name">Cozy Yellow</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4mc3rUoMwwiNTHA4al9nNd?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-11" class="yt-frame" src="" title="Cozy Yellow song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
-          <!-- 13 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005491.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005491.jpg" alt="STI Corridor" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">13 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">STI Corridor</h3>
+          <!-- 13: was Kung San Ka Masaya (sad) → Araw Araw by Cup of Joe (romantic sweet) -->
+          <div class="slide" data-yt="MicqnNlVuMs">
+            <div class="s-bg" style="background-image:url('img/1000005491.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005491.jpg" alt="STI Corridor" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">13 / 19</span>
+                <span class="s-name">STI Corridor</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5W0XFkJLUb2tMRUURb3ejk?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-12" class="yt-frame" src="" title="STI song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
           <!-- 14 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005468.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005468.jpg" alt="Upside Down Sky" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">14 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Upside Down Sky</h3>
+          <div class="slide" data-yt="0SkHb5qlgDmho1ffqLxO4i">
+            <div class="s-bg" style="background-image:url('img/1000005468.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005468.jpg" alt="Upside Down Sky" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">14 / 19</span>
+                <span class="s-name">Upside Down Sky</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0SkHb5qlgDmho1ffqLxO4i?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-13" class="yt-frame" src="" title="Sky song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
           <!-- 15 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005540.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005540.jpg" alt="Restaurant Date" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">15 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Restaurant Date</h3>
+          <div class="slide" data-yt="2wh4fGevm9QWeZtUXEJYCp">
+            <div class="s-bg" style="background-image:url('img/1000005540.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005540.jpg" alt="Restaurant Date" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">15 / 19</span>
+                <span class="s-name">Restaurant Date</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2wh4fGevm9QWeZtUXEJYCp?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-14" class="yt-frame" src="" title="Restaurant song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
-          <!-- 16 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005639.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005639.jpg" alt="Sweet Kiss" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">16 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Sweet Kiss</h3>
+          <!-- 16: was Pwede Ba (sad/longing) → Kahit Ayaw Mo Na by Quest (romantic) -->
+          <div class="slide" data-yt="FZjFNBShHKk">
+            <div class="s-bg" style="background-image:url('img/1000005639.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005639.jpg" alt="Sweet Kiss" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">16 / 19</span>
+                <span class="s-name">Sweet Kiss</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2pGH2MRfqXyFJtVPVBZ7Gx?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-15" class="yt-frame" src="" title="Sweet Kiss song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
           <!-- 17 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005288.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005288.jpg" alt="Matching Energy" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">17 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Matching Energy</h3>
+          <div class="slide" data-yt="3LvrJEPQ61Vvj1t3Edg20X">
+            <div class="s-bg" style="background-image:url('img/1000005288.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005288.jpg" alt="Matching Energy" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">17 / 19</span>
+                <span class="s-name">Matching Energy</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3LvrJEPQ61Vvj1t3Edg20X?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-16" class="yt-frame" src="" title="Matching song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
-          <!-- 18 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005507.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005507.jpg" alt="Burger King Run" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">18 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Burger King Run</h3>
+          <!-- 18: was Makalimutan Ka (sad) → Sana by I Belong to the Zoo (romantic hopeful) -->
+          <div class="slide" data-yt="p9cPvMPPBt0">
+            <div class="s-bg" style="background-image:url('img/1000005507.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005507.jpg" alt="Burger King Run" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">18 / 19</span>
+                <span class="s-name">Burger King Run</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0cE7jDtSmMxAhDxKlVfWNW?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-17" class="yt-frame" src="" title="BK song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
-          <!-- 19 -->
-          <div class="slide">
-            <div class="slide-bg" style="background-image:url('img/1000005523.jpg')"></div>
-            <div class="slide-img-wrap"><img src="img/1000005523.jpg" alt="Photo Booth" loading="lazy" /></div>
-            <div class="slide-overlay">
-              <div class="slide-meta">
-                <span class="slide-num">19 <span class="slide-num-sep">/</span> 19</span>
-                <h3 class="slide-title">Photo Booth</h3>
+          <!-- 19: was Dating Tayo (sad) → Kahit Saan by December Avenue (romantic) -->
+          <div class="slide" data-yt="u0wC1FxNgzA">
+            <div class="s-bg" style="background-image:url('img/1000005523.jpg')"></div>
+            <div class="s-photo"><img src="img/1000005523.jpg" alt="Photo Booth" loading="lazy"/></div>
+            <div class="s-bar">
+              <div class="s-info">
+                <span class="s-idx">19 / 19</span>
+                <span class="s-name">Photo Booth</span>
               </div>
-              <div class="slide-player">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1qZqUkQ9ZhMBE0U8eF3vzl?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-              </div>
+              <div class="s-player"><iframe id="yt-18" class="yt-frame" src="" title="Photo Booth song" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"></iframe></div>
             </div>
           </div>
 
-        </div><!-- /slides-track -->
+        </div><!-- /slides -->
 
-        <!-- Controls -->
-        <button class="slide-btn slide-btn--prev" id="slidePrev" aria-label="Previous">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        <button class="s-btn s-btn-prev" id="sPrev" aria-label="Previous">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
-        <button class="slide-btn slide-btn--next" id="slideNext" aria-label="Next">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <button class="s-btn s-btn-next" id="sNext" aria-label="Next">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
 
-        <!-- Dots -->
-        <div class="slide-dots" id="slideDots"></div>
+        <div class="s-dots" id="sDots"></div>
 
-      </div><!-- /slideshow -->
+      </div><!-- /wrapped -->
     </div>
   </section>
 
-  <!-- Letter -->
+  <!-- ── Letter ── -->
   <section id="letter">
     <div class="container">
-      <span class="section-label reveal">From the Heart</span>
+      <div class="section-eyebrow reveal">From the Heart</div>
       <div class="letter-card reveal">
-        <p class="letter-quote">&ldquo;You are my favorite hello and my hardest goodbye &mdash; every single day.&rdquo;</p>
-        <p class="letter-body">Before you, I didn&rsquo;t know that love could feel like coming home. But every time we&rsquo;re together &mdash; whether we&rsquo;re being ridiculous at an arcade, sharing food at a restaurant, or just lying there doing absolutely nothing &mdash; I feel it. That quiet, steady certainty that you are exactly the person I want beside me.</p>
-        <p class="letter-body">You make me better. You make ordinary days feel like something worth remembering. And one year in, I am more sure than ever &mdash; I want a thousand more.</p>
-        <p class="letter-sig">&mdash; Forever yours ♡</p>
+        <p class="lq">&ldquo;You are my favorite hello and my hardest goodbye &mdash; every single day.&rdquo;</p>
+        <p class="lb">Before you, I didn&rsquo;t know that love could feel like coming home. But every time we&rsquo;re together — whether we&rsquo;re being ridiculous at an arcade, sharing food at a restaurant, or just lying there doing absolutely nothing — I feel it. That quiet, steady certainty that you are exactly the person I want beside me.</p>
+        <p class="lb">You make me better. You make ordinary days feel like something worth remembering. And one year in, I am more sure than ever — I want a thousand more.</p>
+        <p class="ls">&mdash; Forever yours ♡</p>
       </div>
     </div>
   </section>
 
-  <!-- Flower Drawing -->
+  <!-- ── Flower ── -->
   <section id="flower">
     <div class="container">
-      <span class="section-label reveal">A Little Something</span>
-      <h2 class="section-title reveal">Drew This for You</h2>
-      <p class="section-desc reveal">Every petal is a reminder of how much you mean to me.</p>
-      <div class="flower-frame reveal">
+      <div class="section-eyebrow reveal">A Little Something</div>
+      <h2 class="section-heading reveal">Drew This for You</h2>
+      <p class="section-sub reveal">Every petal is a reminder of how much you mean to me.</p>
+      <div class="flower-card reveal">
         <img src="img/flower.webp" alt="Flower drawing" />
-        <div class="flower-caption">♡ Made with love, just for you</div>
+        <div class="flower-cap">♡ Made with love, just for you</div>
       </div>
     </div>
   </section>
 
-  <!-- Reasons -->
+  <!-- ── Reasons ── -->
   <section id="reasons">
     <div class="container">
-      <span class="section-label reveal">Why I Love You</span>
-      <h2 class="section-title reveal">My Favorite Things About You</h2>
-      <div class="reasons-grid">
-        <div class="reason-card reveal"><div class="reason-num">01</div><p class="reason-text">Your laugh &mdash; genuine, unfiltered, contagious. It&rsquo;s the best sound I know.</p></div>
-        <div class="reason-card reveal"><div class="reason-num">02</div><p class="reason-text">The way you lean on me. Even when you&rsquo;re tired, you choose to lean on me.</p></div>
-        <div class="reason-card reveal"><div class="reason-num">03</div><p class="reason-text">Your glasses. You look impossibly cute in them and I refuse to pretend otherwise.</p></div>
-        <div class="reason-card reveal"><div class="reason-num">04</div><p class="reason-text">How you make every place &mdash; arcade, school hallway, fast food corner &mdash; feel like an adventure.</p></div>
-        <div class="reason-card reveal"><div class="reason-num">05</div><p class="reason-text">Your silly faces. You never take yourself too seriously and it makes me love you more.</p></div>
-        <div class="reason-card reveal"><div class="reason-num">06</div><p class="reason-text">You stayed. Through everything &mdash; the boring days, the hard ones, the quiet ones. You stayed.</p></div>
+      <div class="section-eyebrow reveal">Why I Love You</div>
+      <h2 class="section-heading reveal">My Favorite Things About You</h2>
+      <div class="grid-reasons">
+        <div class="reason reveal"><span class="rn">01</span><p>Your laugh — genuine, unfiltered, contagious. It&rsquo;s the best sound I know.</p></div>
+        <div class="reason reveal"><span class="rn">02</span><p>The way you lean on me. Even when you&rsquo;re tired, you choose to lean on me.</p></div>
+        <div class="reason reveal"><span class="rn">03</span><p>Your glasses. You look impossibly cute in them and I refuse to pretend otherwise.</p></div>
+        <div class="reason reveal"><span class="rn">04</span><p>How you make every place — arcade, school hallway, fast food corner — feel like an adventure.</p></div>
+        <div class="reason reveal"><span class="rn">05</span><p>Your silly faces. You never take yourself too seriously and it makes me love you more.</p></div>
+        <div class="reason reveal"><span class="rn">06</span><p>You stayed. Through everything — the boring days, the hard ones, the quiet ones. You stayed.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Countdown -->
+  <!-- ── Countdown ── -->
   <section id="countdown">
     <div class="container">
-      <span class="section-label reveal">Time Together</span>
-      <h2 class="section-title reveal">We&rsquo;ve Been Us For</h2>
-      <div class="countdown-grid">
-        <div class="countdown-unit reveal"><span class="countdown-num" id="cnt-days">&mdash;</span><span class="countdown-label">Days</span></div>
-        <div class="countdown-unit reveal"><span class="countdown-num" id="cnt-hours">&mdash;</span><span class="countdown-label">Hours</span></div>
-        <div class="countdown-unit reveal"><span class="countdown-num" id="cnt-mins">&mdash;</span><span class="countdown-label">Minutes</span></div>
-        <div class="countdown-unit reveal"><span class="countdown-num" id="cnt-secs">&mdash;</span><span class="countdown-label">Seconds</span></div>
+      <div class="section-eyebrow reveal">Time Together</div>
+      <h2 class="section-heading reveal">We&rsquo;ve Been Us For</h2>
+      <div class="cd-row">
+        <div class="cd-unit reveal"><span class="cd-n" id="cnt-days">—</span><span class="cd-l">Days</span></div>
+        <div class="cd-sep reveal">:</div>
+        <div class="cd-unit reveal"><span class="cd-n" id="cnt-hours">—</span><span class="cd-l">Hours</span></div>
+        <div class="cd-sep reveal">:</div>
+        <div class="cd-unit reveal"><span class="cd-n" id="cnt-mins">—</span><span class="cd-l">Mins</span></div>
+        <div class="cd-sep reveal">:</div>
+        <div class="cd-unit reveal"><span class="cd-n" id="cnt-secs">—</span><span class="cd-l">Secs</span></div>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>Made with ♡ for the one who makes every day worth living &mdash; Happy 1 Year, my love.</p>
+    <p>Made with ♡ for the one who makes every day worth living — Happy 1 Year, my love.</p>
   </footer>
 
   <script src="main.js"></script>
-
 </body>
 </html>

@@ -1,83 +1,124 @@
-// Floating petals
-const petalContainer = document.getElementById('petals');
-for (let i = 0; i < 22; i++) {
-  const petal = document.createElement('div');
-  petal.className = 'petal';
-  petal.style.left              = `${Math.random() * 100}%`;
-  petal.style.width             = `${6 + Math.random() * 8}px`;
-  petal.style.height            = `${8 + Math.random() * 10}px`;
-  petal.style.animationDuration = `${8 + Math.random() * 12}s`;
-  petal.style.animationDelay    = `${-Math.random() * 15}s`;
-  petal.style.opacity           = `${0.15 + Math.random() * 0.25}`;
-  petalContainer.appendChild(petal);
+// ── Petals ──
+const pc = document.getElementById('petals');
+for (let i = 0; i < 18; i++) {
+  const p = document.createElement('div');
+  p.className = 'petal';
+  const size = 6 + Math.random() * 8;
+  p.style.cssText = [
+    `left:${Math.random()*100}%`,
+    `width:${size}px`,
+    `height:${size*1.5}px`,
+    `background:radial-gradient(ellipse,${Math.random()>0.5?'#e8a4c8':'#c47aac'} 0%,transparent 70%)`,
+    `animation-duration:${9+Math.random()*12}s`,
+    `animation-delay:${-Math.random()*18}s`
+  ].join(';');
+  pc.appendChild(p);
 }
 
-// ── Slideshow ──
-const track  = document.getElementById('slidesTrack');
-const slides = track.querySelectorAll('.slide');
-const dotsEl = document.getElementById('slideDots');
-const total  = slides.length;
-let current  = 0;
+// ── Slideshow with YouTube autoplay ──
+const track    = document.getElementById('slides');
+const slideEls = Array.from(track.querySelectorAll('.slide'));
+const dotsEl   = document.getElementById('sDots');
+const total    = slideEls.length;
+let cur        = 0;
+
+// Map Spotify track IDs → YouTube video IDs for songs that need it
+// (slides already have correct YT IDs in data-yt for most;
+//  for Spotify IDs we keep them as-is — the embed builder handles both)
+
+// Build YouTube src for a given video ID
+function ytSrc(videoId) {
+  return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1`;
+}
+
+// Map: if data-yt looks like a Spotify ID (no dashes mostly, length 22) stay Spotify
+// but we switched all to YT IDs in HTML, so just check length
+function isMusicId(id) {
+  // YouTube IDs are 11 chars; Spotify IDs are 22 chars
+  return id.length === 11;
+}
 
 // Build dots
-slides.forEach((_, i) => {
-  const dot = document.createElement('button');
-  dot.className = 'dot' + (i === 0 ? ' active' : '');
-  dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
-  dot.addEventListener('click', () => goTo(i));
-  dotsEl.appendChild(dot);
+slideEls.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'dot' + (i === 0 ? ' on' : '');
+  d.setAttribute('aria-label', `Slide ${i+1}`);
+  d.addEventListener('click', () => go(i));
+  dotsEl.appendChild(d);
 });
 
-function goTo(index) {
-  current = (index + total) % total;
-  track.style.transform = `translateX(-${current * 100}%)`;
-  dotsEl.querySelectorAll('.dot').forEach((d, i) =>
-    d.classList.toggle('active', i === current)
-  );
+function go(idx) {
+  // Stop current iframe (remove src)
+  const prevFrame = slideEls[cur].querySelector('.yt-frame');
+  if (prevFrame) prevFrame.src = '';
+
+  cur = ((idx % total) + total) % total;
+  track.style.transform = `translateX(-${cur * 100}%)`;
+
+  // Update dots
+  dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('on', i === cur));
+
+  // Autoplay new slide's video
+  const ytId   = slideEls[cur].dataset.yt;
+  const frame  = slideEls[cur].querySelector('.yt-frame');
+  if (frame && ytId) {
+    if (isMusicId(ytId)) {
+      // YouTube ID
+      frame.src = ytSrc(ytId);
+    } else {
+      // Spotify embed fallback (no autoplay, but keeps player)
+      frame.src = `https://open.spotify.com/embed/track/${ytId}?utm_source=generator&theme=0`;
+    }
+  }
 }
 
-document.getElementById('slidePrev').addEventListener('click', () => goTo(current - 1));
-document.getElementById('slideNext').addEventListener('click', () => goTo(current + 1));
+// Init first slide
+const firstId = slideEls[0].dataset.yt;
+const firstFrame = slideEls[0].querySelector('.yt-frame');
+if (firstFrame && firstId) {
+  firstFrame.src = isMusicId(firstId) ? ytSrc(firstId) :
+    `https://open.spotify.com/embed/track/${firstId}?utm_source=generator&theme=0`;
+}
+
+document.getElementById('sPrev').addEventListener('click', () => go(cur - 1));
+document.getElementById('sNext').addEventListener('click', () => go(cur + 1));
 
 // Swipe
-let touchStartX = 0;
-track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+let tx = 0;
+track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
 track.addEventListener('touchend',   e => {
-  const diff = touchStartX - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+  const d = tx - e.changedTouches[0].clientX;
+  if (Math.abs(d) > 40) go(d > 0 ? cur + 1 : cur - 1);
 });
 
 // Keyboard
 document.addEventListener('keydown', e => {
-  if (e.key === 'ArrowRight') goTo(current + 1);
-  if (e.key === 'ArrowLeft')  goTo(current - 1);
+  if (e.key === 'ArrowRight') go(cur + 1);
+  if (e.key === 'ArrowLeft')  go(cur - 1);
 });
 
 // ── Countdown ──
 const START = new Date('2025-06-03T00:00:00');
-
 function tick() {
-  const diff  = Date.now() - START.getTime();
-  const secs  = Math.floor(diff / 1000);
-  const mins  = Math.floor(secs / 60);
-  const hours = Math.floor(mins / 60);
-  const days  = Math.floor(hours / 24);
-  document.getElementById('cnt-days').textContent  = days.toLocaleString();
-  document.getElementById('cnt-hours').textContent = String(hours % 24).padStart(2, '0');
-  document.getElementById('cnt-mins').textContent  = String(mins  % 60).padStart(2, '0');
-  document.getElementById('cnt-secs').textContent  = String(secs  % 60).padStart(2, '0');
+  const ms    = Date.now() - START.getTime();
+  const s     = Math.floor(ms / 1000);
+  const m     = Math.floor(s / 60);
+  const h     = Math.floor(m / 60);
+  const d     = Math.floor(h / 24);
+  document.getElementById('cnt-days').textContent  = d.toLocaleString();
+  document.getElementById('cnt-hours').textContent = String(h % 24).padStart(2,'0');
+  document.getElementById('cnt-mins').textContent  = String(m % 60).padStart(2,'0');
+  document.getElementById('cnt-secs').textContent  = String(s % 60).padStart(2,'0');
 }
-tick();
-setInterval(tick, 1000);
+tick(); setInterval(tick, 1000);
 
-// ── Scroll Reveal ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 40);
-      observer.unobserve(entry.target);
+// ── Scroll reveal ──
+const ro = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), i * 40);
+      ro.unobserve(e.target);
     }
   });
 }, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
