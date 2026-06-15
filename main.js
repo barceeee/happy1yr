@@ -22,20 +22,9 @@ const dotsEl   = document.getElementById('sDots');
 const total    = slideEls.length;
 let cur        = 0;
 
-// Map Spotify track IDs → YouTube video IDs for songs that need it
-// (slides already have correct YT IDs in data-yt for most;
-//  for Spotify IDs we keep them as-is — the embed builder handles both)
-
-// Build YouTube src for a given video ID
+// All data-yt values are now valid 11-char YouTube IDs
 function ytSrc(videoId) {
   return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1`;
-}
-
-// Map: if data-yt looks like a Spotify ID (no dashes mostly, length 22) stay Spotify
-// but we switched all to YT IDs in HTML, so just check length
-function isMusicId(id) {
-  // YouTube IDs are 11 chars; Spotify IDs are 22 chars
-  return id.length === 11;
 }
 
 // Build dots
@@ -48,7 +37,7 @@ slideEls.forEach((_, i) => {
 });
 
 function go(idx) {
-  // Stop current iframe (remove src)
+  // Stop current iframe by removing src
   const prevFrame = slideEls[cur].querySelector('.yt-frame');
   if (prevFrame) prevFrame.src = '';
 
@@ -59,26 +48,17 @@ function go(idx) {
   dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('on', i === cur));
 
   // Autoplay new slide's video
-  const ytId   = slideEls[cur].dataset.yt;
-  const frame  = slideEls[cur].querySelector('.yt-frame');
+  const ytId  = slideEls[cur].dataset.yt;
+  const frame = slideEls[cur].querySelector('.yt-frame');
   if (frame && ytId) {
-    if (isMusicId(ytId)) {
-      // YouTube ID
-      frame.src = ytSrc(ytId);
-    } else {
-      // Spotify embed fallback (no autoplay, but keeps player)
-      frame.src = `https://open.spotify.com/embed/track/${ytId}?utm_source=generator&theme=0`;
-    }
+    frame.src = ytSrc(ytId);
   }
 }
 
 // Init first slide
-const firstId = slideEls[0].dataset.yt;
+const firstId    = slideEls[0].dataset.yt;
 const firstFrame = slideEls[0].querySelector('.yt-frame');
-if (firstFrame && firstId) {
-  firstFrame.src = isMusicId(firstId) ? ytSrc(firstId) :
-    `https://open.spotify.com/embed/track/${firstId}?utm_source=generator&theme=0`;
-}
+if (firstFrame && firstId) firstFrame.src = ytSrc(firstId);
 
 document.getElementById('sPrev').addEventListener('click', () => go(cur - 1));
 document.getElementById('sNext').addEventListener('click', () => go(cur + 1));
@@ -100,11 +80,11 @@ document.addEventListener('keydown', e => {
 // ── Countdown ──
 const START = new Date('2025-06-03T00:00:00');
 function tick() {
-  const ms    = Date.now() - START.getTime();
-  const s     = Math.floor(ms / 1000);
-  const m     = Math.floor(s / 60);
-  const h     = Math.floor(m / 60);
-  const d     = Math.floor(h / 24);
+  const ms = Date.now() - START.getTime();
+  const s  = Math.floor(ms / 1000);
+  const m  = Math.floor(s / 60);
+  const h  = Math.floor(m / 60);
+  const d  = Math.floor(h / 24);
   document.getElementById('cnt-days').textContent  = d.toLocaleString();
   document.getElementById('cnt-hours').textContent = String(h % 24).padStart(2,'0');
   document.getElementById('cnt-mins').textContent  = String(m % 60).padStart(2,'0');

@@ -130,22 +130,50 @@ section { position: relative; z-index: 2; }
 /* Bottom bar */
 .s-bar {
   position: relative; z-index: 2;
-  padding: 12px 16px 16px;
+  padding: 10px 16px 14px;
   background: linear-gradient(0deg, rgba(4,2,10,0.96) 0%, rgba(4,2,10,0.82) 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid rgba(255,255,255,0.05);
-  display: flex; flex-direction: column; gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.s-info { display: flex; align-items: baseline; gap: 10px; }
-.s-idx { font-size: 0.68rem; font-style: italic; color: rgba(240,234,248,0.3); font-family: 'Playfair Display', serif; white-space: nowrap; }
-.s-name { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 3vw, 1.3rem); color: #f0eaf8; font-weight: 400; }
+
+/* Index + song name row */
+.s-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.s-idx {
+  font-size: 0.65rem;
+  font-style: italic;
+  color: rgba(240,234,248,0.3);
+  font-family: 'Playfair Display', serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.s-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+  color: #f0eaf8;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
 
 /* YouTube embed */
 .s-player { width: 100%; }
 .yt-frame {
-  display: block; width: 100%; height: 72px;
-  border-radius: 12px; border: none;
+  display: block;
+  width: 100%;
+  height: 68px;
+  border-radius: 12px;
+  border: none;
   background: #000;
 }
 
@@ -167,7 +195,8 @@ section { position: relative; z-index: 2; }
 /* ── Dots ── */
 .s-dots {
   position: absolute;
-  bottom: calc(100px);
+  /* sit just above the bottom bar; photo area ends ~155px from bottom */
+  bottom: 158px;
   left: 50%; transform: translateX(-50%);
   display: flex; gap: 4px; z-index: 20; pointer-events: none;
 }
