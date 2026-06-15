@@ -18,7 +18,6 @@ const slides = track.querySelectorAll('.slide');
 const dotsEl = document.getElementById('slideDots');
 const total  = slides.length;
 let current  = 0;
-let autoTimer;
 
 // Build dots
 slides.forEach((_, i) => {
@@ -35,18 +34,12 @@ function goTo(index) {
   dotsEl.querySelectorAll('.dot').forEach((d, i) =>
     d.classList.toggle('active', i === current)
   );
-  resetAuto();
-}
-
-function resetAuto() {
-  clearInterval(autoTimer);
-  autoTimer = setInterval(() => goTo(current + 1), 5000);
 }
 
 document.getElementById('slidePrev').addEventListener('click', () => goTo(current - 1));
 document.getElementById('slideNext').addEventListener('click', () => goTo(current + 1));
 
-// Swipe support
+// Swipe
 let touchStartX = 0;
 track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
 track.addEventListener('touchend',   e => {
@@ -54,7 +47,11 @@ track.addEventListener('touchend',   e => {
   if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
 });
 
-resetAuto();
+// Keyboard
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') goTo(current + 1);
+  if (e.key === 'ArrowLeft')  goTo(current - 1);
+});
 
 // ── Countdown ──
 const START = new Date('2025-06-03T00:00:00');
