@@ -113,7 +113,7 @@ section { position: relative; z-index: 2; }
   z-index: 0;
 }
 
-/* Photo area — full visible, no crop */
+/* Photo area */
 .s-photo {
   position: relative; z-index: 1;
   flex: 1; display: flex; align-items: center; justify-content: center;
@@ -166,12 +166,12 @@ section { position: relative; z-index: 2; }
   line-height: 1.2;
 }
 
-/* YouTube embed */
+/* Spotify embed */
 .s-player { width: 100%; }
-.yt-frame {
+.sp-frame {
   display: block;
   width: 100%;
-  height: 68px;
+  height: 80px;
   border-radius: 12px;
   border: none;
   background: #000;
@@ -195,8 +195,7 @@ section { position: relative; z-index: 2; }
 /* ── Dots ── */
 .s-dots {
   position: absolute;
-  /* sit just above the bottom bar; photo area ends ~155px from bottom */
-  bottom: 158px;
+  bottom: 162px;
   left: 50%; transform: translateX(-50%);
   display: flex; gap: 4px; z-index: 20; pointer-events: none;
 }

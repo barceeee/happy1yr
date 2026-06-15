@@ -15,30 +15,30 @@ for (let i = 0; i < 18; i++) {
   pc.appendChild(p);
 }
 
-// ── Slideshow with YouTube autoplay ──
+// ── Slideshow with Spotify embeds ──
 const track    = document.getElementById('slides');
 const slideEls = Array.from(track.querySelectorAll('.slide'));
 const dotsEl   = document.getElementById('sDots');
 const total    = slideEls.length;
 let cur        = 0;
 
-// All data-yt values are now valid 11-char YouTube IDs
-function ytSrc(videoId) {
-  return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&rel=0&showinfo=0&modestbranding=1&enablejsapi=1`;
+// Build Spotify compact embed URL
+function spotifySrc(trackId) {
+  return `https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`;
 }
 
 // Build dots
 slideEls.forEach((_, i) => {
   const d = document.createElement('button');
   d.className = 'dot' + (i === 0 ? ' on' : '');
-  d.setAttribute('aria-label', `Slide ${i+1}`);
+  d.setAttribute('aria-label', `Slide ${i + 1}`);
   d.addEventListener('click', () => go(i));
   dotsEl.appendChild(d);
 });
 
 function go(idx) {
-  // Stop current iframe by removing src
-  const prevFrame = slideEls[cur].querySelector('.yt-frame');
+  // Unload previous iframe to stop playback
+  const prevFrame = slideEls[cur].querySelector('.sp-frame');
   if (prevFrame) prevFrame.src = '';
 
   cur = ((idx % total) + total) % total;
@@ -47,18 +47,18 @@ function go(idx) {
   // Update dots
   dotsEl.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('on', i === cur));
 
-  // Autoplay new slide's video
-  const ytId  = slideEls[cur].dataset.yt;
-  const frame = slideEls[cur].querySelector('.yt-frame');
-  if (frame && ytId) {
-    frame.src = ytSrc(ytId);
+  // Load Spotify embed for the new slide
+  const spotifyId = slideEls[cur].dataset.spotify;
+  const frame     = slideEls[cur].querySelector('.sp-frame');
+  if (frame && spotifyId) {
+    frame.src = spotifySrc(spotifyId);
   }
 }
 
 // Init first slide
-const firstId    = slideEls[0].dataset.yt;
-const firstFrame = slideEls[0].querySelector('.yt-frame');
-if (firstFrame && firstId) firstFrame.src = ytSrc(firstId);
+const firstId    = slideEls[0].dataset.spotify;
+const firstFrame = slideEls[0].querySelector('.sp-frame');
+if (firstFrame && firstId) firstFrame.src = spotifySrc(firstId);
 
 document.getElementById('sPrev').addEventListener('click', () => go(cur - 1));
 document.getElementById('sNext').addEventListener('click', () => go(cur + 1));
